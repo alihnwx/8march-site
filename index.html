@@ -16,16 +16,11 @@ body {
   overflow-y: hidden;
 }
 
-/* --- Glassmorphism контейнер --- */
 .container {
-  margin: 20px auto;
-  padding: 20px;
-  width: 90%;
-  max-width: 500px;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(15px);
-  border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  margin: 40px auto;
+  padding: 10px 20px;
+  width: 100%;
+  max-width: 480px;
 }
 
 /* Заголовок */
@@ -84,11 +79,30 @@ p {
 }
 
 /* Адаптивные стили */
-@media (max-width: 400px) {
-  h1 { font-size: 22px; }
-  .girl-photo { max-width: 80%; }
-  .record-img { width: 140px; }
-  button { padding: 8px 15px; font-size: 14px; }
+@media (max-width: 600px) {
+  body {
+    overflow-y: auto;
+  }
+
+  .container {
+    margin: 24px auto;
+    padding: 0 16px 32px;
+  }
+
+  h1 {
+    font-size: 22px;
+    margin-top: 8px;
+  }
+
+  .girl-photo {
+    width: 82%;
+    max-width: 260px;
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 1.5;
+  }
 }
 </style>
 </head>
