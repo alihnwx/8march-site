@@ -11,7 +11,7 @@
 <div class="page">
   <header class="top-greeting">
     <div class="top-greeting__label">8 марта</div>
-    <h1 class="top-greeting__title">С Международным женским днём!</h1>
+    <h1 id="top-title" class="top-greeting__title">С 8 Марта 💐</h1>
     <p class="top-greeting__subtitle">Пусть этот день будет тёплым, ярким и особенным — именно для тебя.</p>
   </header>
 
@@ -35,7 +35,9 @@ fetch("data.json")
     const key = params.get("name");
 
     if (data[key]) {
-      document.getElementById("name").innerText = data[key].name;
+      const girlName = data[key].name;
+      document.getElementById("top-title").innerText = "С 8 Марта, " + girlName + " 💐";
+      document.getElementById("name").innerText = girlName;
       document.getElementById("photo").src = data[key].photo;
       typeWriter(data[key].text, textElement);
     } else {
