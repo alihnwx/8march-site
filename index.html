@@ -4,114 +4,24 @@
 <meta charset="UTF-8">
 <title>С 8 Марта 💐</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  text-align: center;
-  background: radial-gradient(circle at top, #ffe3ed 0%, #ffb3c6 35%, #ff7aa2 70%, #f24479 100%);
-  color: white;
-  overflow-x: hidden;
-  overflow-y: hidden;
-}
-
-.container {
-  margin: 40px auto;
-  padding: 10px 20px;
-  width: 100%;
-  max-width: 480px;
-}
-
-/* Заголовок */
-h1 {
-  font-size: 26px;
-  margin-bottom: 15px;
-  color: #5d0035;
-  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.6);
-}
-
-/* Фото девушки */
-.girl-photo {
-  width: 80%;
-  max-width: 220px;
-  height: auto;
-  border-radius: 20px;
-  object-fit: cover;
-  border: 3px solid white;
-  margin: 15px auto;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-
-/* Текст поздравления */
-p {
-  margin-top: 20px;
-  font-size: 16px;
-  line-height: 1.4;
-}
-
-/* --- Лепестки и цветочки --- */
-.petal, .flower {
-  position: absolute;
-  top: -50px; /* начинаем с верха */
-  border-radius: 50%;
-  animation: fall linear infinite;
-}
-
-.petal {
-  width: 15px;
-  height: 15px;
-  background: pink;
-}
-
-.flower {
-  width: 25px;
-  height: 25px;
-  background: #ffe0e6;
-  clip-path: polygon(
-    50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%
-  );
-}
-
-@keyframes fall {
-  0% { transform: translateY(-50px) translateX(0); }
-  100% { transform: translateY(110vh) translateX(20px); }
-}
-
-/* Адаптивные стили */
-@media (max-width: 600px) {
-  body {
-    overflow-y: auto;
-  }
-
-  .container {
-    margin: 24px auto;
-    padding: 0 16px 32px;
-  }
-
-  h1 {
-    font-size: 22px;
-    margin-top: 8px;
-  }
-
-  .girl-photo {
-    width: 82%;
-    max-width: 260px;
-  }
-
-  p {
-    font-size: 15px;
-    line-height: 1.5;
-  }
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
-  <h1 id="name">С 8 Марта 🌸</h1>
-  <img id="photo" class="girl-photo" src="" alt="">
-  <p id="text"></p>
+<div class="page">
+  <header class="top-greeting">
+    <div class="top-greeting__label">8 марта</div>
+    <h1 class="top-greeting__title">С Международным женским днём!</h1>
+    <p class="top-greeting__subtitle">Пусть этот день будет тёплым, ярким и особенным — именно для тебя.</p>
+  </header>
+
+  <main class="card">
+    <div class="card__photo-wrapper">
+      <img id="photo" class="card__photo" src="" alt="">
+    </div>
+    <h2 id="name" class="card__name"></h2>
+    <p id="text" class="card__message"></p>
+  </main>
 </div>
 
 <script>
@@ -125,7 +35,7 @@ fetch("data.json")
     const key = params.get("name");
 
     if (data[key]) {
-      document.getElementById("name").innerText = "С 8 Марта, " + data[key].name + " 💐";
+      document.getElementById("name").innerText = data[key].name;
       document.getElementById("photo").src = data[key].photo;
       typeWriter(data[key].text, textElement);
     } else {
